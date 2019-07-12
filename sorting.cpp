@@ -54,31 +54,19 @@ void merge(int *left, int *right, int *a, int nR, int nL) {
 	int i =0, j = 0, k =0;
 	
 	while(i < nR && j < nL){
-		if(left[j] < right[i]){
-			a[k] = left[j];
-			k++;
-			j++;
-		}
 		
-		else {
-			a[k] = right[i];
-			k++;
-			i++;
-		}
+		if(left[j] < right[i])
+			a[k++] = left[j++];
 		
+		else 
+			a[k++] = right[i++];	
 	}
 	
-	while( i< nR){
-		a[k] = right[i];
-		k++;
-		i++;
-	}
+	while( i< nR)
+		a[k++] = right[i++];
 	
-	while(j < nL) {
-		a[k] = left[j];
-		j++;
-		k++;
-	}
+	while(j < nL) 
+	    a[k++] = left[j++];
 	
 	cout << "After merging . . ." << endl;
 	display(a, k);
@@ -123,8 +111,8 @@ main()
 	
 	cout<< "Before sorting . . ." << endl; display(arr);
 	
-//	cout << "Merge Sorting . . ." << endl;mergeSort(arr);
-	selectionSort(arr);
+	cout << "Merge Sorting . . ." << endl;mergeSort(arr);
+// 	selectionSort(arr);
 //	insertionSort(arr);
 	cout << "Result :" << endl;
 	display(arr);
