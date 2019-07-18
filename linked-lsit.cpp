@@ -62,17 +62,11 @@ int remove() {
 
 
 int main() {
-   struct Node *n1 , *head, *n2;
-
-   n2->data = 3;
-   n2->next = NULL;
-
-   n1->data = 2;
-   n1->next = n2;
-
-   head->data = 1;
-   head->next = n1;
-
+   insert(1);
+   insert(2);
+   insert(3);
+   insert(4);
+   insert(5);
    display();
    
 
@@ -83,7 +77,7 @@ int main() {
         cout<<"Enter element to add :"; cin>>a;
         cout << "Enter postion :"; cin >> pos;
         insert(a, pos);
-        cout<<"wants to add more??(y/n)";
+        cout <<"wants to add more??(y/n)";
         cin>>ch;
 
 	}while(ch=='y');
