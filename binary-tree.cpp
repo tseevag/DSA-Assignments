@@ -7,15 +7,18 @@ class Node
     Node *left, *right;
 
     public:
-    Node( int d): data(d)
-    {
-        left = NULL;
-        right = NULL;
-    }
+    Node():data(NULL), left(NULL), right(NULL)
+    {}
+	
+    Node( int d): data(d), left(NULL), right(NULL)
+    {}
 
-    insert(int d)
+    void insert(int d)
     {
-        if(d > data)
+    	if(data == NULL)
+    		data = d;
+    		
+        else if(d > data)
         {
             if(right == NULL)
             {
@@ -28,7 +31,7 @@ class Node
                 right->insert(d);
         }
 
-        else
+        else if(d < data)
         {
             if(left == NULL)
             {
@@ -46,19 +49,12 @@ class Node
     {
         
         if(left != NULL)
-        {
-        	cout <<"Left . . ." << endl;
             left->traverse();
-		}
         
-        cout << "\t Root : " << data << endl;
+        cout << data << "\t";
 
         if(right != NULL)
-        {
-        	cout << "\t\tRight . . ." << endl;
             right ->traverse();
-		}
-        	       
     }
     
     bool contains(int d)
@@ -83,16 +79,15 @@ class Node
 			else
 				right->contains(d);
 		}
-    		
-    		
-    	
 	}
 };
 
 
 int main()
 {
-    Node tree(4);
+    Node tree;
+    
+    tree.insert(4);
 
     tree.insert(5);
     tree.insert(2);
@@ -100,10 +95,12 @@ int main()
     tree.insert(1);
     tree.insert(7);
     tree.insert(6);
+    tree.insert(5);
     
     tree.traverse();
     
-cout << tree.contains(9);
+ 	if(tree.contains(6))   
+		cout <<endl<< "tree contains 6";
 
     return 0;
 }

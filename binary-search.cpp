@@ -28,10 +28,12 @@ class array{
 
         int s = 0, e = N-1, m , i = 0;
 
-        m = (s+e)/2;
-
         while(s <= e)
         {
+            m = (s+e)/2;
+
+            //for understanding 
+           cout << ++i << " s = "<< s<<" m = "<<m <<" e = "<<e <<  " cond = " << (int)(s <= e) << endl;
 
             if(a[m] == n) 
                 return true;
@@ -42,11 +44,6 @@ class array{
 
             else
                 s = m+1;
-
-             m = (s+e)/2;
-
-           //for understanding 
-           cout << ++i << " s = "<< s<<" m = "<<m <<" e = "<<e <<  " cond = " << (int)(s <= e) << endl;
         }
             
 
